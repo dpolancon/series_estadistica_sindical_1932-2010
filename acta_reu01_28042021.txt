@@ -1,0 +1,37 @@
+Reu con el Seba 
+
+- Trabajo en plataforma git hub 
+- Responsabilidades: Seba texto, Polanco codigos de R. 
+- Tarea pal Seba: 
+*tasa de desempleo. 
+
+- Estructura del documento: 
+
+* Motivacion 
+-La relevancia del indicador de afiliacion sindical 
+-Discutir la excepcionalidad del periodo 65-73.
+ + El problema del campo 
+ + El problema del empoderamiento sindical industrial 
+(aumento del empleo) 
+-Discutir crecimiento de afiliacion 73-78 (periodo 
+terapia de shock)
+
+
+* Distintos calculos de tasa de afiliacion sindical 
+
+- Indicador de afiliacion sindical sobre ocupados 
+- Indicador de afiliacion sindical sobre la fuerza de trabajo
+- La dialectica de los indicadores 
+
+** grafico de distintos calculos tasa de afiliacion 
+** comentarios a la aritmetica del indicador 
+
+* Conclusiones 
+
+** Preguntas relevantes sobre la estacionalidad de los datos. 
+--> Ejemplo, la diferencia esta dada por estacionalidad o no?
+(Considerar relevancia de afiliacion sindical rural, considerar 
+si trabajadores contratados en periodos explicados por el efecto 
+estacional son afiliados/informales). 
+
+
