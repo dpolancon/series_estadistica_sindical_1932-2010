@@ -1,0 +1,1 @@
+# tasa_afiliacion_sindical
