@@ -5,14 +5,23 @@ date: "07-05-2021"
 output: pdf_document
 ---
 
-```{r setup, include=FALSE}
+```{r knitr setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r open data sets, include=FALSE}
-
-
-
-
+```{r call libraries, include=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(broom)
+library(knitr)
+library(tibble)
+library(AER)
+library(stargazer)
+library(readxl)
 ```
 
+```{r call libraries, include=FALSE}
+main_df <- read_excel("data/afiliacion_sindical_1932_2019.xlsx", 
+    sheet = "2.1b", range = "C1:L88")
+
+```
