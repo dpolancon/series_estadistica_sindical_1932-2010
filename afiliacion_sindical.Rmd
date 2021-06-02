@@ -6,6 +6,7 @@ output: pdf_document
 ---
 
 ```{r knitr setup, include=FALSE}
+rm(list = ls())
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
@@ -20,8 +21,184 @@ library(stargazer)
 library(readxl)
 ```
 
-```{r call libraries, include=FALSE}
-main_df <- read_excel("data/afiliacion_sindical_1932_2019.xlsx", 
-    sheet = "2.1b", range = "C1:L88")
+
+
+
+
+## Introducción 
+
+- Relevancia del indicador de afiliacion sindical 
+
+- Discutir la excepcionalidad del periodo 65-73.
+  - El problema del campo 
+  - El problema del empoderamiento sindical industrial aumento del empleo) 
+
+-Discutir crecimiento de afiliacion 73-78 (periodo terapia de shock, básicamente contestar la idea de FSOL de que no es posible considerar el dato en este periodo). 
+
+
+
+## Calculos de tasa de afiliacion sindical 
+
+Previo a presentar distintos calculos de la tasa de afiliación sindical, es necesario primero realizar una revisión de las fuentes de información sobre los distintos componentes del indicador asi como de sus alternativas de calculo que nos permitiran realizar inferencia cualitativa a partir de las diferencias entre los indicadores alternativos. 
+
+
+
+### Total de Afiliados a Organizaciones Sindicales 
+
+La relevancia de la figura 1 esta dada que a pesar de extraer la informción relativa al total de afiliados de distintas fuentes, no pareciera haber mayores diferencias entre distintas fuentes de información. Por lo cual una propuesta de empalme se hace trivial de abordar utilizando las siguientes fechas: BLABLABLA SOBRE EL EMPALME. 
+
+
+```{r preprocessing, include=FALSE}
+
+#calling data set 
+afiliacion_sindical_1932_2019 <- read_excel("data/afiliacion_sindical_1932_2019.xlsx", sheet = "Datos 1932-2010", range = "A1:O90")
+
+#rename colnames 
+colnames(afiliacion_sindical_1932_2019) = c("agno",
+                      "nsin_1", "nsin_2", "nsin_3",
+                      "ta_1","ta_2", 
+                      "enigmatica_1",
+                      "ft_cliolab2010",
+                      "oc_cliolab2010",
+                      "pop_cliolab2010",
+                      "d_cliolab2010",
+                      "ts_1","ts_2",
+                      "tps",
+                      "ts_spriv")
+
+
+#trabajar con las variables ta_1 y ta_2 para convertirlas en una serie para cada fuente de datos. 
+#He aqui donde se manifiesta la carencia de pensamiento matricial del colega, debido a su sesgo de estructuracion de dados dado por su actividad intensiva en el problema delempalme.
+
+#ta_1 se convierte en ta2.0_1 y ta2.0_2 # ta_2 se convierte en ta2.0_3 ta2.0_4 ta2.0_5 
+
+#Departamento de Publicaciones de FACEA 
+## Departamento de Relaciones de Trabajo y Desarrollo Organizacional (DERTO) 56-72 (ts2.0_1)
+afiliacion_sindical_1932_2019 = afiliacion_sindical_1932_2019 %>% mutate(ts2.0_1 = ifelse(agno %in% c(1956:1972),ta_1,NA))
+
+#Barret  (ts2.0_2)
+afiliacion_sindical_1932_2019 = afiliacion_sindical_1932_2019 %>% mutate(ts2.0_2 = ifelse(agno %in% c(1981:1998),ta_1,NA))
+
+#Morris y Olander 
+afiliacion_sindical_1932_2019 = afiliacion_sindical_1932_2019 %>% mutate(ts2.0_3 = ifelse(agno %in% c(1930:1959),ta_2,NA))
+
+#ClioLab   (ts2.0_4)
+afiliacion_sindical_1932_2019 = afiliacion_sindical_1932_2019 %>% mutate(ts2.0_4 = ifelse(agno %in% c(1970:1989),ta_2,NA))
+
+#Dirección del trabajo  (ts2.0_5)
+afiliacion_sindical_1932_2019 = afiliacion_sindical_1932_2019 %>% mutate(ts2.0_5 = ifelse(agno %in% c(1990:2018),ta_2,NA))
 
 ```
+
+```{r figura1 Version preliminar, echo=FALSE}
+colores_res<-c("#090909","#E41657","#9D0CEF","#626262","#9D0CEF")
+afiliacion_sindical_1932_2019  %>% ggplot(aes(x=agno)) + 
+  geom_line(aes(y = ts2.0_3), color = colores_res[2], size=1, na.rm = TRUE)+   
+  geom_line(aes(y = ts2.0_1), color = colores_res[1], size=1, lty="longdash", na.rm = TRUE)+
+  geom_line(aes(y = ts2.0_4), color = colores_res[3], size=1, na.rm = TRUE)+
+  geom_line(aes(y = ts2.0_2), color = colores_res[4], size=1, lty="longdash", na.rm = TRUE)+
+  geom_line(aes(y = ts2.0_5), color = colores_res[5], size=1, lty="dotted", na.rm = TRUE)+
+  labs(title = "Figura 1. Total de Afiliados, (1932-2018).Ditintas Fuentes de Información.",
+       caption = "Fuente: Respositorio Sindical (2021)",
+       x = "Año",
+       y = "Total de Afiliados Sindicales")
+
+```
+
+
+
+
+
+### Total de Ocupados versus Total de la Fuerza de Trabajo 
+
+Es de nuestro interés poder identificar si los cambios en la tasa de afiliación están dados por el crecimiento del total de afiliados, o si esta dado por la base del indicador, es decir el universo sobre el cual se considera el total de afiliados para extraer información de un indicador. Consideramos que tanto calcular la tasa de afiliación tanto para el total de ocupados como para la fuerza de trabajo es relevante, debido a que de este modo podemos identificar efectos ciclicos del aumento de la tasa de afiliación sindical, es decir que esta se explica por una aumento de la tasa de empleo y no por un crecimiento propio de la afiliación sindical en su calidad de indicaodr de poder de la clase trabajadora organizada. 
+
+```{r grafico2, echo=FALSE}
+#calling data set 
+as_empalme_1932_2019 <- read_excel("data/afiliacion_sindical_1932_2019.xlsx", sheet = "Empalme", range = "A1:F82")
+
+#cambiamos colnames para facilitar el uso de la base (nuevamente arregalndo las fallas estructurales del osorio)
+colnames(as_empalme_1932_2019) = c("agno",
+                      "sin", 
+                      "afil", 
+                      "ft",
+                      "oc", 
+                      "des")
+
+colores_res<-c("#090909","#E41657","#9D0CEF","#626262","#9D0CEF")
+as_empalme_1932_2019  %>% ggplot(aes(x=agno)) + 
+  geom_line(aes(y = oc), color = colores_res[2], size=1, na.rm = TRUE)+   
+  geom_line(aes(y = ft), color = colores_res[1], size=1, lty="longdash", na.rm = TRUE)+
+  labs(title = "Figura 2. Total de OcupadEs vs Total Fuerza de Trabajo, (1930-2018).",
+       caption = "Fuente: Respositorio Sindical (2021)", 
+       x = "Año", 
+       y = "Total de Personas")
+
+```
+Evidentemente, en la figura 2 la serie de FT siempre se encontrara por sobre el total de ocupados, dado que el total de la fuerza de trabajo considera, a los ocupados, desocupados y quienes buscan trabajo por primera vez por ejemplo. No obstante su diferencia si nos entrega información sobre la intensidad de uso del factor trabajo, dado que $e=ocupados/FT$ donde $e$ se refiere a la tasa de empleo. Esto es pertinente para nuestro interés de calcular la tasa de afiliación sindical con distintos numeradores con tal de comparar el componente ciclico de la tasa de afiliación versus el crecimiento "vegetativo" de la misma. 
+
+
+### Tasa de Afiliación Sindical
+
+La diferencia entre la tasa de afiliación sindical con base en los ocupados, versus la tasa con base en el total de la fuerza de trabajo da cuenta de en que medida la tasa de afiliación esta dada por un componente del ciclo económico y no por un crecimiento propio de la inclusión de la fuerza de trabajo sea formal o informal, urbana o rural, al acceso a los derechos colectivos del trabajo. 
+
+
+```{r grafico3, echo=FALSE}
+
+as_empalme_1932_2019 = as_empalme_1932_2019 %>% mutate(ta_oc = 100*(afil/oc), ta_ft = 100*(afil/ft))
+
+                                                      
+colores_res<-c("#090909","#E41657","#9D0CEF","#626262","#9D0CEF")
+as_empalme_1932_2019  %>% ggplot(aes(x=agno)) + 
+  geom_line(aes(y = ta_oc), color = colores_res[2], size=1, na.rm = TRUE)+
+  geom_line(aes(y = ta_ft), color = colores_res[1], size=1, lty="longdash", na.rm = TRUE)+
+  labs(title = "Figura 3. Tasa de Afiliación Sindical. Base Ocupados vs Total FT  (1930-2018).",
+       caption = "Fuente: Respositorio Sindical (2021)", 
+       x = "Año", 
+       y = "%")
+
+```
+
+
+
+## Sección 2: Tamaño promedio sindicatos 
+
+### Total de Sindicatos 
+
+
+COMENTARIO POLANCO: Este gráfico podemos hacerlo también por distintas fuentes. 
+
+```{r figura4, echo=FALSE}
+as_empalme_1932_2019  %>% ggplot(aes(x=agno)) + 
+  geom_line(aes(y = sin), color = colores_res[2], size=1, na.rm = TRUE)+
+  labs(title = "Figura 4. Total de Sindicatos. Distintas Fuentes (1930-2018).",
+       caption = "Fuente: Respositorio Sindical (2021)", 
+       x = "Año", 
+       y = "Total Sindicatos")
+```
+
+
+### Tamaño promedio de Sindicatos
+
+Significativo quiebre del periodo de "terapia de shock". Alta estabilidad durante el periodo ISI, excepción de la crisis del 29, pero si pareciera haber una tendencia al alza previa. 
+
+
+```{r figura5, echo=FALSE}
+
+as_empalme_1932_2019 = as_empalme_1932_2019 %>% mutate(tp_sin = 100*(afil/sin))
+
+as_empalme_1932_2019  %>% ggplot(aes(x=agno)) + 
+  geom_line(aes(y = tp_sin), color = colores_res[2], size=1, na.rm = TRUE)+
+  labs(title = "Figura 5. Tamaño Promedio de Sindicatos (1930-2018).",
+       caption = "Fuente: Respositorio Sindical (2021)", 
+       x = "Año", 
+       y = "Tamaño Promedio")
+  
+```
+
+
+## Conclusiones 
+
+- Preguntas relevantes sobre la estacionalidad de los datos (no seria relevante solo en caso de tener datos trimestrales? No. Ahora recuerdo que estacionalidad nos referimos a una posible diferencia de nivel dado que el dato es capturado en distintos momentos del año) 
+
+--> Ejemplo, la diferencia esta dada por estacionalidad o no? (Considerar relevancia de afiliacion sindical rural, considerar  si trabajadores contratados en periodos explicados por el efecto  estacional son afiliados/informales). 
