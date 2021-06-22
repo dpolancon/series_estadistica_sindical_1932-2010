@@ -114,7 +114,7 @@ F1 + theme(panel.background = element_rect(fill = "white", colour = "black"))
 
 La Figura 1 muestra las estimaciones del total de afiliados según distintas fuentes. Aunque toman periodos diferentes, las cifras guardan bastante coherencia entre sí, al punto que su superposición es casi indistinguible gráficamente. En consecuencia, la propuesta de empalme solo requiere escoger los datos más adecuados para los pocos años que se solapan. 
 
-Para la construcción de la serie del total de afiliados se tomaron los únicos datos existentes entre 1932 y 1956, correspondientes a  Morris y Oyaneder (1962). Entre 1956 y 1959 se optó por esta misma fuente, ya que los datos alternativos de DERTO (1977) no reflejan el hecho de que a partir de 1956 el gobierno realizó una importante limpieza de organizaciones inactivas resultando una disminución del total. En cambio, entre 1960 y 1969 se utilizan los datos de DERTO ya es la única fuente disponible. Entre 1970 y 1972, la serie construida coincide con la información de Cliolab (2010), que a su vez es la única que cubre el periodo entre 1973 y 1989. Finalmente, a partir de 1990 se opta por la información de Dirección del Trabajo (2019) derivada de la Encuesta Nacional de Empleo, ya que es la fuente oficial provista por el Estado, y su evolución es coherente con los datos anteriores a ese año.
+Para la construcción de la serie del total de afiliados se tomaron los únicos datos existentes entre 1932 y 1956, correspondientes a  Morris y Oyaneder (1962). Entre 1956 y 1959 se optó por esta misma fuente, ya que los datos alternativos de DERTO (1977) no reflejan el hecho de que a partir de 1956 el gobierno realizó una importante limpieza de organizaciones inactivas resultando una disminución del total. En cambio, entre 1960 y 1969 se utilizan los datos de DERTO ya es la única fuente disponible. Entre 1970 y 1972, la serie construida coincide con la información de Cliolab (2010), que a su vez es la única que cubre el periodo entre 1973 y 1989. Finalmente, a partir de 1990 se opta por la información de Dirección del Trabajo (2021) derivada de la Encuesta Nacional de Empleo, ya que es la fuente oficial provista por el Estado, y su evolución es coherente con los datos anteriores a ese año.
 
 En la Figura 2 se expone la propuesta de empalme del total de afiliados a sindicatos (eje derecho), y la resultante tasa de afiliación (eje izquierdo) con dos denominadores diferentes: (i) la cantidad de ocupados y (ii) la fuerza de trabajo total. Al respecto, cabe destacar lo siguiente: 
 
@@ -218,7 +218,7 @@ F3 + theme(panel.background = element_rect(fill = "white", colour = "black"))
 ```
 
 
-Para la construcción de esta serie, se utilizaron los datos de Morris y Oyaneder (1962) entre 1932 y 1959, por ser los únicos disponibles. Entre 1960 y 1964 se optó por los datos de Barrera (1980) que obtuvo de fuentes oficiales y que coinciden con la serie precedente desde 1956, reflejando mejor que otras fuentes la eliminación de sindicatos inactivos propiciada por el gobierno. A partir de 1965 y hasta 1969, la única fuente disponible es DERTO (1977), mientras que desde 1970 hasta 1989 se utilizaron los datos de Cliolab (2010). Finalmente, desde 1990 hasta 2010 se utilizaron los datos oficiales de la Dirección del Trabajo (2019). Los datos de Barret (2001) coinciden con los de Cliolab entre 1981 y 1989, pero desde 1990 hasta 1998 muestran un crecimiento anómalo que solo se puede explicar por no haber considerado los sindicatos que entran en receso anualmente.
+Para la construcción de esta serie, se utilizaron los datos de Morris y Oyaneder (1962) entre 1932 y 1959, por ser los únicos disponibles. Entre 1960 y 1964 se optó por los datos de Barrera (1980) que obtuvo de fuentes oficiales y que coinciden con la serie precedente desde 1956, reflejando mejor que otras fuentes la eliminación de sindicatos inactivos propiciada por el gobierno. A partir de 1965 y hasta 1969, la única fuente disponible es DERTO (1977), mientras que desde 1970 hasta 1989 se utilizaron los datos de Cliolab (2010). Finalmente, desde 1990 hasta 2010 se utilizaron los datos oficiales de la Dirección del Trabajo (2021). Los datos de Barret (2001) coinciden con los de Cliolab entre 1981 y 1989, pero desde 1990 hasta 1998 muestran un crecimiento anómalo que solo se puede explicar por no haber considerado los sindicatos que entran en receso anualmente.
 
 La Figura 4 expone la propuesta de empalme del total de sindicatos (eje derecho), y el indicador del tamaño promedio de los sindicatos (eje izquierdo). De esta figura se puede destacar lo siguiente:
 
@@ -268,11 +268,11 @@ Asimismo, la representación gráfica de los empalmes con los indicadores de ref
 
 # Referencias {-}
 
-Barrera, M. (1980). *Desarrollo económico y sindicalismo en Chile: 1938-1970.* Revista Mexicana de Sociología, 42(3), 1269-1296.
+Barrera, M. (1980). Desarrollo económico y sindicalismo en Chile: 1938-1970. *Revista Mexicana de Sociología*, 42(3), 1269-1296.
 
-Barret, P. (2001). *Labour policy, labour–business relations and the transition to democracy in Chile.* Journal of Latin American Studies, 33(3), 561-597.
+Barret, P. (2001). Labour policy, labour–business relations and the transition to democracy in Chile. *Journal of Latin American Studies*, 33(3), 561-597.
 
-DERTO. (1977). Estadísticas Sindicales (1956—1972). Universidad de Chile.
+DERTO. (1977). *Estadísticas Sindicales (1956—1972)*. Universidad de Chile.
 
 Díaz, J., Lüders, R., & Wagner, G. (2016). *Chile 1810-2010. La República en cifras. Historical statistics.* Ediciones Universidad Católica de Chile.
 
@@ -280,8 +280,8 @@ Dirección del Trabajo. (2021). *Compendio de Series Estadísticas, 1990—2019 
 
 Morris, J., & Oyaneder, R. (1962). *Afiliación y finanzas sindicales en Chile, 1932—1959.* Publicaciones INSORA.
 
-Morris, P. (1998). *Sindicatos en receso: La otra cara de la estabilidad sindical* (N.o 4). Direccion del Trabajo.
+Morris, P. (1998). *Sindicatos en receso: La otra cara de la estabilidad sindical* (No. 4). Direccion del Trabajo.
 
-Stallings, B. (2001). *Las reformas estructurales y el desempeño socioeconómico*, en Reformas, crecimiento y políticas sociales en Chile desde 1973. Santiago de Chile: LOM Ediciones, 23-60. 
+Stallings, B. (2001). "Las reformas estructurales y el desempeño socioeconómico", en Ffrench-Davis, R. y Stallings, B. (Eds.), *Reformas, crecimiento y políticas sociales en Chile desde 1973*. Santiago de Chile: LOM Ediciones, 23-60. 
 
 
