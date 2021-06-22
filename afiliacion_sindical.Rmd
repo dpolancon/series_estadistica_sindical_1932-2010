@@ -115,6 +115,8 @@ F1 + theme(panel.background = element_rect(fill = "white", colour = "black"))
 
 La Figura 1 muestra las estimaciones del total de afiliados según distintas fuentes. Aunque toman periodos diferentes, las cifras guardan bastante coherencia entre sí, al punto que su superposición es casi indistinguible gráficamente. En consecuencia, la propuesta de empalme solo requiere escoger los datos más adecuados para los pocos años que se solapan. 
 
+Para la construcción de la serie del total de afiliados se tomaron los únicos datos existentes entre 1932 y 1956, correspondientes a  Morris y Oyaneder (1962). Entre 1956 y 1959 se optó por esta misma fuente, ya que los datos alternativos de DERTO (1977) no reflejan que a partir de 1956 el gobierno realizó una importante limpieza de organizaciones inactivas resultando una disminución del total, aunque entre 1960 y 1969 DERTO se convierte en la única fuente disponible. Entre 1970 y 1972, los datos de DERTO coinciden con la información de Cliolab (2010), que a su vez es la única existente entre 1973 y 1989. Finalmente, a partir de 1990 se opta por la información de Dirección del Trabajo (2019) derivada de la Encuesta Nacional de Empleo, ya que es la fuente oficial provista por el Estado, y su evolución es coherente con los datos anteriores a ese año.
+
 En la Figura 2 se expone la propuesta de empalme del total de afiliados a sindicatos (eje derecho), y la resultante tasa de afiliación (eje izquierdo) con dos denominadores diferentes: (i) la cantidad de ocupados y (ii) la fuerza de trabajo total. Al respecto, cabe destacar lo siguiente: 
 
 - Se observan dos periodos de aumento explosivo de la sindicalización. El primero se registra a partir de 1968 y termina en 1978. El segundo comienza en 1984 y termina en 1992.
@@ -217,8 +219,9 @@ F3 + theme(panel.background = element_rect(fill = "white", colour = "black"))
 ```
 
 
+Para la construcción de esta serie, se utilizaron los datos de Morris y Oyaneder (1962) entre 1932 y 1959, por ser los únicos disponibles. Entre 1960 y 1964 se optó por los datos de Barrera (1980), que coinciden con la serie precedente desde 1956 y reflejan mejor la eliminación de sindicatos inactivos propiciada por el gobierno, y además según el autor fueron extraídas de fuentes oficiales. A partir de 1965 y hasta 1969, la única fuente disponible es DERTO (1977), mientras que desde 1970 hasta 1989 se utilizaron los datos de Cliolab (2010). Finalmente, desde 1990 hasta 2010 se utilizaron los datos oficiales de la Dirección del Trabajo (2019).
 
-La Figura 4 expone la propuesta de empalme de la cantidad total de sindicatos (eje derecho), y el indicador del tamaño promedio de los sindicatos (eje izquierdo). De esta figura se puede destacar lo siguiente:
+La Figura 4 expone la propuesta de empalme del total de sindicatos (eje derecho), y el indicador del tamaño promedio de los sindicatos (eje izquierdo). De esta figura se puede destacar lo siguiente:
 
 - A largo plazo, la tendencia del sindicalismo chileno es a una multiplicación de sus organizaciones, las que se mueven en un sentido similar al total de afiliados en la Figura 2. Esto implica que el crecimiento sindical se logra con la creación de nuevos sindicatos, y no con una mayor concentración de afiliados entre los ya existentes.
 
