@@ -4,10 +4,10 @@ title: Tasas de Afiliación Sindical y Tamaño Promedio de los Sindicatos en Chi
 author: "Sebastian Osorio y Diego Polanco"
 date: "07-05-2021"
 output:
-  word_document: default
   pdf_document:
     number_section: yes
     extra_dependencies: float
+  word_document: default
 header-includes: \usepackage{floatrow} \floatsetup[figure]{capposition=top} \usepackage{float}
   \floatplacement{figure}{H}
 fontsize: 11pt
