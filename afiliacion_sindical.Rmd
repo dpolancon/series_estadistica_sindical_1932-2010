@@ -1,17 +1,16 @@
 ---
-title: "Tasas de Afiliación Sindical y Tamaño Promedio de los Sindicatos en Chile, (1932-2010). Indicadores y Fuentes de Información."
+title: Tasas de Afiliación Sindical y Tamaño Promedio de los Sindicatos en Chile,
+  (1932-2010). Indicadores y Fuentes de Información.
 author: "Sebastian Osorio y Diego Polanco"
 date: "07-05-2021"
-fontsize: 11pt
-header-includes:
-  \usepackage{floatrow}
-  \floatsetup[figure]{capposition=top}
-  \usepackage{float}
-  \floatplacement{figure}{H}
 output:
-  pdf_document: 
-    number_section: true
-    extra_dependencies: ["float"]
+  word_document: default
+  pdf_document:
+    number_section: yes
+    extra_dependencies: float
+header-includes: \usepackage{floatrow} \floatsetup[figure]{capposition=top} \usepackage{float}
+  \floatplacement{figure}{H}
+fontsize: 11pt
 ---
 
 \renewcommand{\figurename}{Figura}
