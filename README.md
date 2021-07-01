@@ -1,1 +1,1 @@
-# tasa_afiliacion_sindical
+# Series históricas de estadística sindical (1932-2010)
