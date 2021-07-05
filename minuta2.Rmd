@@ -1,5 +1,5 @@
 ---
-title: Tasas de Afiliación Sindical y Tamaño Promedio de los Sindicatos en Chile, 1932-2010. Fuentes de Información y propuesta de empalme
+title: Tasas de Afiliación Sindical y Tamaño Promedio de los Sindicatos en Chile, 1932-2010. Fuentes de Información y Propuesta de Empalme.  
 author: "Sebastian Osorio y Diego Polanco"
 date: "07-05-2021"
 output:
@@ -262,9 +262,6 @@ En el presente documento se expusieron las fuentes disponibles y una propuesta d
 Del ordenamiento de la información, se concluye que los dos empalmes son sencillos ya que solo requieren escoger los datos más razonables en los pocos años que se superponen, lo cual generalmente remite a considerar el tratamiento de los sindicatos “en receso”, y el periodo del año de medición. 
 
 Asimismo, la representación gráfica de los empalmes con los indicadores de referencia permiten observar que la evolución del sindicalismo constituye un buen reflejo de los procesos económicos y políticos del país, especialmente en los periodos 1968-1973, y 1982-1989, en los que se registraron las variaciones más importantes.
-
-
-\newpage
 
 # Referencias {-}
 
