@@ -20,6 +20,9 @@ header-includes:
 - \usepackage{titling}
 - \pretitle{\begin{center}\LARGE\includegraphics[width=8cm]{Input/Images/RES01.png}\\[\bigskipamount]}
 - \posttitle{\end{center}}
+- \usepackage{floatrow} 
+- \usepackage{float}
+- \floatplacement{figure}{H}
 fontsize: 12pt
 linkcolor: blue
 urlcolor: blue
