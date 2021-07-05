@@ -1,16 +1,60 @@
 ---
-title: Tasas de Afiliación Sindical y Tamaño Promedio de los Sindicatos en Chile, 1932-2010. Fuentes de Información y Propuesta de Empalme.  
-author: "Sebastian Osorio y Diego Polanco"
-date: "07-05-2021"
+title: |
+ | \vspace{1cm} Minuta N°2:
+ | Tasas de Afiliación Sindical y Tamaño Promedio de los Sindicatos en Chile, 1932-2010.
+subtitle: |
+  Fuentes de Información y propuesta de empalme
+author: |
+ | \vspace{3cm} 
+ | Sebastian Osorio y Diego Polanco
+date: |
+ | Junio de 2021
 output:
   pdf_document:
-    number_section: yes
+    latex_engine: xelatex
+    toc_depth: '4'
+    fig_caption: yes 
     extra_dependencies: float
-  word_document: default
-header-includes: \usepackage{floatrow} \floatsetup[figure]{capposition=top} \usepackage{float}
-  \floatplacement{figure}{H}
-fontsize: 11pt
+#    number_sections: true
+header-includes:
+- \usepackage{titling}
+- \pretitle{\begin{center}\LARGE\includegraphics[width=8cm]{Input/Images/RES01.png}\\[\bigskipamount]}
+- \posttitle{\end{center}}
+fontsize: 12pt
+linkcolor: blue
+urlcolor: blue
+link-citations: yes
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+\thispagestyle{empty} 
+
+\newpage
+
+# Resumen
+
+El objetivo de la presente minuta es dar cuenta de las aproximaciones existentes, y exponer una propuesta de empalme que abarca el periodo 1932-2010. Con esto, se espera aportar a la construcción de una base sólida para su utilización en futuras investigaciones sobre el movimiento sindical nacional
+
+# Sobre el Repositorio de Estadísticas Sindicales
+
+El Repositorio de Estadísticas Sindicales busca ordenar y centralizar distintos datos sobre la trayectoria y el estado actual del sindicalismo en el país. Esto, con el objeto de brindarle oportunamente a las organizaciones sindicales y a otros estudiosos/as del trabajo información actualizada, de confianza y reproducible.
+
+El repositorio es una iniciativa levantada, sostenida y financiada por investigadores del trabajo independientes y parte de organizaciones de la sociedad civil afines a la temática, como [CIPSTRA](https://cipstra.cl/) y [GETSUR](http://www.getsur.cl/). Cualquiera puede colaborar corrigiendo información, proponiendo medidas alternativas o aportando con nuevos datos. El trabajo es abierto y colaborativo en el Github del [Repositorio de Estadísticas Sindicales](https://github.com/ObservatorioSindical) o contactando a las organizaciones.
+
+
+```{r, echo=FALSE, fig.align='center', out.width=c("25%","50%"), fig.show='hold'}
+graficos<-list.files("../OUTPUT/Graficos/Nacionales")
+knitr::include_graphics(c("Input/Images/Getsur.jpeg","Input/Images/logo_sin_fondo.png"))
+```
+
+$$\\[0.5in]$$
+
+**Como citar:** 
+
+Osorio, S. y Polanco, D. (2021) *Minuta N°2: Tasas de Afiliación Sindical y Tamaño Promedio de los Sindicatos en Chile, 1932-2010. Fuentes de Información y propuesta de empalme*. Repositorio de Estadísticas Sindicales (RES). Disponible en: https://repositoriosindical.netlify.app/minutas/ 
 
 \renewcommand{\figurename}{Figura}
 \renewcommand{\tablename}{Tabla}
@@ -79,6 +123,8 @@ af_1932_2010 = af_1932_2010 %>% mutate(ts2.0_5 = ifelse(agno %in% c(1990:2010),t
 
 ```
 
+\newpage
+
 
 # Introducción 
 
@@ -104,6 +150,7 @@ F1 = af_1932_2010 %>% gather(Fuente,value,starts_with("ts2.0_")) %>%
     ggplot(aes(x = agno, y = value, color = Fuente, linetype = Fuente)) +          geom_line() +
     scale_linetype_manual(values= lineas, labels = fuentes)+
     scale_x_continuous(name="Año", limits=c(1932,2010))+ 
+    scale_y_continuous(labels=function(x) format(x, big.mark = ".", scientific = FALSE)) + 
     labs(y = "Total de Afiliados Sindicales")+
     scale_color_manual(values = colores_res,
                       labels = fuentes)
@@ -209,6 +256,7 @@ F3 = af_1932_2010 %>% gather(Fuente,value,starts_with("nsin2.0_")) %>%
     ggplot(aes(x = agno, y = value, color = Fuente, linetype = Fuente)) +          geom_line() +
     scale_linetype_manual(values= lineas, labels = fuentes)+
     scale_x_continuous(name="Año", limits=c(1932,2010))+ 
+    scale_y_continuous(labels=function(x) format(x, big.mark = ".", scientific = FALSE)) + 
     labs(y = "Total de Sindicatos")+
     scale_color_manual(values = colores_res,
                       labels = fuentes)
