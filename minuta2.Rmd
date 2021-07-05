@@ -3,7 +3,7 @@ title: |
  | \vspace{1cm} Minuta N°2:
  | Tasas de Afiliación Sindical y Tamaño Promedio de los Sindicatos en Chile, 1932-2010.
 subtitle: |
-  Fuentes de Información y propuesta de empalme
+  Fuentes de Información y Propuesta de Empalme.
 author: |
  | \vspace{3cm} 
  | Sebastian Osorio y Diego Polanco
@@ -36,7 +36,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Resumen
 
-El objetivo de la presente minuta es dar cuenta de las aproximaciones existentes, y exponer una propuesta de empalme que abarca el periodo 1932-2010. Con esto, se espera aportar a la construcción de una base sólida para su utilización en futuras investigaciones sobre el movimiento sindical nacional
+El objetivo de la presente minuta es dar cuenta de las aproximaciones existentes a la tasa de afiliación sindical y del tamaño promedio de los sindicatos , y exponer una propuesta de empalme que abarca el periodo 1932-2010. Con esto, se espera aportar a la construcción de una base sólida para su utilización en futuras investigaciones sobre el
+movimiento sindical nacional.
 
 # Sobre el Repositorio de Estadísticas Sindicales
 
@@ -302,6 +303,8 @@ legend("bottomright",  inset = c(-0.1,-0.35),
        lty = c(2, 1), box.lty=1, cex = 0.6, xpd = TRUE)
 
 ```
+
+\newpage 
 
 # Conclusiones 
 
